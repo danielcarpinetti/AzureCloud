@@ -1,0 +1,32 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "functions": [],
+    "variables": {},
+    "resources": [
+      {
+        "name": "galaxia-infra1-rt",
+        "type": "Microsoft.Network/routeTables",
+        "apiVersion": "2023-04-01",
+        "location": "[resourceGroup().location]",
+        "tags": {
+            "usage": "infra"
+        },
+        "properties": {
+            "routes": [
+                {
+                    "name": "to-galaxia-",
+                    "properties": {
+                        "addressPrefix": "destinationCIDR",
+                        "nextHopType": "VirtualNetworkAppliance",
+                        "nextHopIpAddress": "10.1.0.1"
+                    }
+                }
+            ],
+            "disableBgpRoutePropagation": true
+        }
+      }
+    ],
+    "outputs": {}
+}
