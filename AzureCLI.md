@@ -1,5 +1,8 @@
 AZURE CLI COMMANDS
 
+Reference:
+https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest
+
 	- List all the subscriptions on the ID account and which one is in use:
 
 az account list --query "[].{Nome:name, Selecionada:isDefault}"
